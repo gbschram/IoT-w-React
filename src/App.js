@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
+import Directory from './Components/DirectoryComponent';
 import './App.css';
+import { TECH } from './shared/tech';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tech: TECH
+        };
+    }
+    render() {
+        return (
+            <div className="App">
+                <Navbar dark color="primary">
+                <div className="container">
+                    <NavbarBrand href="/">Internet of Things Field Notebook</NavbarBrand>
+                </div>
+                </Navbar>
+                <Directory tech={this.state.tech} />
+                
+            </div>
+        );
+    }
 }
 
 export default App;
